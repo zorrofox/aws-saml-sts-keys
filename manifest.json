@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "author": "Debin Huang",
+  "homepage_url": "https://github.com/zorrofox/aws-saml-sts-keys",
+  "name": "SAML to AWS STS Keys",
+  "description": "Generates keys with AWS STS Keys after logging in to AWS webconsole using SSO (SAML 2.0). It leverages 'assumeRoleWithSAML' API.",
+  "version": "1.0",
+  "icons": {  "16": "icons/icon_16.png",
+              "32": "icons/icon_32.png",
+              "48": "icons/icon_48.png",
+              "128": "icons/icon_128.png" },
+  "action": {
+    "default_icon": "icons/icon_32.png",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "background/script.js"
+  },
+  "options_page": "options/options.html",
+  "permissions": [
+    "webRequest",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}

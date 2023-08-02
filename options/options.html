@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+
+  <link rel="stylesheet" type="text/css" href="options.css">
+  <link rel="stylesheet" type="text/css" href="../lib/bootstrap-4.3.1-dist/css/bootstrap.css">
+  <title>Options page for SAML to AWS STS Keys</title>
+  </head>
+  <body>
+  <div id="divTitle" class="container">
+    <div id="divIcon" class="inline-div"><img src="../icons/icon_128.png" alt="Icon" height="50" width="50"></div>
+    <div id="divHeader" class="inline-div"><h2>Options for SAML to AWS STS Keys</h2></div>
+  </div>
+  <hr>
+  
+  <div id="divSettings" class="container">
+    <div id="divFilename" class="form-group">
+      <label>To use the file or textarea to get the AWS access content</label>
+      <br />
+      <select name="FileOrText" id="FileOrText" class="form-control">
+        <option value="file">File</option>
+        <option value="text">Text</option>
+      </select>
+      <br><br>
+      <div name="FileNameDiv" id="FileNameDiv">
+      <label name="FileNameLabel" id="FileNameLabel">Filename for writing the fetched AWS STS keys. File will be written to Chrome's download directory. Example filename: credentials</label>
+      <br />
+      <input type="text" name="FileName" id="FileName"  class="form-control">
+      </div>
+    </div>
+
+    <div id="divSessionDuration" class="form-group">
+      <label>Apply the session duration requested by the SAML provider</label>
+      <br />
+      <select name="SessionDuration" id="SessionDuration"  class="form-control">
+        <option value="yes">yes</option>
+        <option value="no">no</option>
+      </select>
+      <br><br>
+      <div id="divCustomSessionDuration">
+        <label>Set custom session duration in seconds. Example: 14400 is 4 hours
+        <br>Note: the requested session duration can NOT be more than MaxSessionDuration set for this role.</label>
+        <br />
+        <input type="text" name="CustomSessionDuration" id="CustomSessionDuration" class="form-control">
+        <br><br>
+      </div>
+      <label>Enable DEBUG logs</label>
+      <br />
+      <select name="DebugLogs" id="DebugLogs"  class="form-control">
+        <option value="yes">yes</option>
+        <option value="no">no</option>
+      </select>
+    </div>
+
+    <div id="divLoginUrls" class="form-group">
+      <div>
+      <label>Input the IDP Sign In URL</label>
+      <br/>
+      <input type="text" name="LoginUrl" id="LoginUrl" class="form-control">
+      <br><br>
+      <label>Input the IDP Sign Out URL</label>
+      <br/>
+      <input type="text" name="LogoutUrl" id="LogoutUrl"  class="form-control">
+      <br><br>
+      </div>
+    </div>
+    
+    <div id="divRoles" class="form-group">
+      <label>[OPTIONAL]</label><br>
+      <label>Specify a list of Role ARN's. For each role the plugin will call the assume-role API. The fetched AWS STS keys will be added to the output file as separate profiles.</label>
+      <div id="role_arns" class="inline-div">
+      </div>
+    </div>
+    
+    <div id="divSave">
+      <div id="status" class="alert alert-primary d-none" role="alert"></div>
+      <button id="save" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+  <script src="options.js"></script>
+  <script src="../lib/jquery-3.6.2.min.js"></script>
+  </body>
+</html>
+
